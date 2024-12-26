@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Машинка</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #87CEEB; /* Цвет неба */
+        }
+
+        .scene {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .road {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background-color: #555; /* Цвет дороги */
+        }
+
+        .car {
+            position: absolute;
+            width: 200px;
+            height: 100px;
+            background-color: #FF0000; /* Цвет машинки */
+            border-radius: 10px;
+            bottom: 100px; /* Поднимаем машинку над дорогой */
+            animation: drive 3s forwards; /* Анимация выезда */
+        }
+
+        .tree {
+            position: absolute;
+            bottom: 100px;
+            left: 20px;
+            width: 30px;
+            height: 50px;
+            background-color: #8B4513; /* Цвет ствола дерева */
+            border-radius: 5px;
+        }
+
+        .tree::before {
+            content: '';
+            position: absolute;
+            bottom: 50px;
+            left: -10px;
+            width: 50px;
+            height: 50px;
+            background-color: #228B22; /* Цвет листвы */
+            border-radius: 50%;
+        }
+
+        @keyframes drive {
+            0% {
+                left: -200px; /* Начальная позиция за экраном */
+            }
+            100% {
+                left: calc(100% - 250px); /* Остановка за 50px до конца экрана */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="scene">
+        <div class="road"></div>
+        <div class="car"></div>
+        <div class="tree"></div>
+    </div>
+</body>
+</html>
